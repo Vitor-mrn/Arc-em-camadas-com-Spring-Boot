@@ -1,16 +1,11 @@
+
 package br.com.sistemas.chamados.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Table;
-import jakarta.persistence.OneToMany;
-
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
+import br.com.sistemas.chamados.enums.Prioridade;
+import br.com.sistemas.chamados.enums.Status;
 
 @Entity
 @Table(name = "chamados")
@@ -26,8 +21,17 @@ public class Chamado {
     @Column(nullable = false, length = 1000)
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
-    private String status;
+    private Status status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 30)
+    private Prioridade prioridade;
+
+    private LocalDateTime dataAbertura;
+
+    private LocalDateTime dataFechamento;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
@@ -40,14 +44,32 @@ public class Chamado {
     @OneToMany(mappedBy = "chamado")
     private List<Comentario> comentarios;
 
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id")
+    private Tecnico tecnico;
+
     public Chamado() {}
 
-    public Chamado(String titulo, String descricao, String status, Cliente cliente, Categoria categoria) {
+    public Chamado(String titulo, String descricao,
+                   Prioridade prioridade, Cliente cliente,
+                   Tecnico tecnico, Categoria categoria) {
         this.titulo = titulo;
         this.descricao = descricao;
-        this.status = status;
+        this.prioridade = prioridade;
         this.cliente = cliente;
+        this.tecnico = tecnico;
         this.categoria = categoria;
+    }
+
+    @PrePersist
+    public void antesDeSalvar() {
+        if (dataAbertura == null) {
+            dataAbertura = LocalDateTime.now();
+        }
+
+        if (status == null) {
+            status = Status.ABERTO;
+        }
     }
 
     public Long getId() {
@@ -70,12 +92,38 @@ public class Chamado {
         this.descricao = descricao;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
+
+        if (status == Status.FECHADO) {
+            this.dataFechamento = LocalDateTime.now();
+        } else {
+            this.dataFechamento = null;
+        }
+    }
+
+    public Prioridade getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(Prioridade prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public LocalDateTime getDataAbertura() {
+        return dataAbertura;
+    }
+
+    public LocalDateTime getDataFechamento() {
+        return dataFechamento;
+    }
+
+    public void setDataFechamento(LocalDateTime dataFechamento) {
+        this.dataFechamento = dataFechamento;
     }
 
     public Cliente getCliente() {
@@ -92,5 +140,17 @@ public class Chamado {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
     }
 }
