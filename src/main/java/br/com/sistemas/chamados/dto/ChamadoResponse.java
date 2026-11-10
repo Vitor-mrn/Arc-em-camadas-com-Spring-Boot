@@ -2,7 +2,6 @@ package br.com.sistemas.chamados.dto;
 
 import java.time.LocalDateTime;
 import br.com.sistemas.chamados.entity.Chamado;
-import java.util.List;
 
 public record ChamadoResponse(
     Long id,

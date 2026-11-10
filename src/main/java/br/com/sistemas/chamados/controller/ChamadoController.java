@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import br.com.sistemas.chamados.dto.ChamadoDetalheResponse;
+import br.com.sistemas.chamados.dto.ChamadoDetalhe;
 import br.com.sistemas.chamados.service.ComentarioService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -56,8 +56,8 @@ public class ChamadoController {
     }
 
     @GetMapping("/{id}")
-    public ChamadoDetalheResponse buscar(@PathVariable Long id) {
-        return new ChamadoDetalheResponse(service.buscar(id), comentarioService.listar(id));
+    public ChamadoDetalhe buscar(@PathVariable Long id) {
+        return new ChamadoDetalhe(service.buscar(id), comentarioService.listar(id));
     }
 
     @PutMapping("/{id}")
