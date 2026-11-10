@@ -1,4 +1,3 @@
-
 package br.com.sistemas.chamados.entity;
 
 import jakarta.persistence.Column;
