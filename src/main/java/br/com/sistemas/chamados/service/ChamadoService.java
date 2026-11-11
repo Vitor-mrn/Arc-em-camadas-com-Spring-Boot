@@ -1,7 +1,6 @@
 package br.com.sistemas.chamados.service;
 
 
-import java.util.List;
 import org.springframework.stereotype.Service;
 import br.com.sistemas.chamados.dto.ChamadoRequest;
 import br.com.sistemas.chamados.dto.ChamadoResponse;
