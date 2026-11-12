@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SistemasDeChamados | Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">A</div>
+            <span>Sitemas<span class="logo-highlight">De Chamados</span></span>
+        </div>
+
+        <div class="menu-section">
+            <span class="menu-title">MENU PRINCIPAL</span>
+
+            <a href="/" class="menu-item active">
+                <span>&#9632;</span> Dashboard
+            </a>
+
+            <a href="/painel/chamados" class="menu-item">
+                <span>&#128203;</span> Chamados
+            </a>
+
+            <a href="/painel/clientes" class="menu-item">
+                <span>&#128100;</span> Clientes
+            </a>
+
+            <a href="/painel/tecnicos" class="menu-item">
+                <span>&#9881;</span> T&eacute;cnicos
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="user-profile">
+                <div class="user-avatar">VM</div>
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor do sistema</small>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÃšDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Bem-vindo ao painel de atendimento!</p>
+            </div>
+
+            <div class="topbar-right">
+                <span class="notification">â™§</span>
+                <span class="current-date">AtendeLab</span>
+            </div>
+        </header>
+
+        <!-- INDICADORES -->
+        <section class="welcome-section">
+            <h2>Vis&atilde;o geral</h2>
+            <p>Acompanhe os indicadores do seu atendimento.</p>
+        </section>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon blue">&#128203;</div>
+                <span class="stat-label">Total de chamados</span>
+                <strong class="stat-number">128</strong>
+                <small>Chamados cadastrados</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">&#9679;</div>
+                <span class="stat-label">Abertos</span>
+                <strong class="stat-number">32</strong>
+                <small>Aguardando atendimento</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon purple">&#9881;</div>
+                <span class="stat-label">Em andamento</span>
+                <strong class="stat-number">18</strong>
+                <small>Em atendimento t&eacute;cnico</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">&#10003;</div>
+                <span class="stat-label">Conclu&iacute;dos</span>
+                <strong class="stat-number">78</strong>
+                <small>Atendimentos finalizados</small>
+            </div>
+
+        </section>
+
+        <!-- CHAMADOS RECENTES -->
+        <section class="content-card">
+
+            <div class="section-header">
+                <div>
+                    <h2>Chamados recentes</h2>
+                    <p>Acompanhe as &Uacute;ltimas solicita&ccedil;&otilde;es.</p>
+                </div>
+
+                <a href="/painel/chamados" class="view-all">Ver todos &rarr;</a>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th># ID</th>
+                            <th>TÃ­tulo</th>
+                            <th>Prioridade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Problema de conex&atilde;o</td>
+                            <td><span class="priority high">Alta</span></td>
+                            <td><span class="status open">Aberto</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>#002</td>
+                            <td>Erro no sistema</td>
+                            <td><span class="priority medium">M&eacute;dia</span></td>
+                            <td><span class="status progress">Em andamento</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>#003</td>
+                            <td>SolicitaÃ§Ã£o de acesso</td>
+                            <td><span class="priority low">Baixa</span></td>
+                            <td><span class="status completed">ConcluÃ­do</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <footer>
+            CHAMADOS &copy; 2026 â€” Sistema de gerenciamento de chamados.
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+
+

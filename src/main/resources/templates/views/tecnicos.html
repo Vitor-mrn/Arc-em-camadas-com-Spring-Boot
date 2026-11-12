@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicos | AtendeLab</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">A</div>
+            <span>Sistemas<span class="logo-highlight">De Chamados</span></span>
+        </div>
+
+        <div class="menu-section">
+            <span class="menu-title">MENU PRINCIPAL</span>
+
+            <a href="/" class="menu-item">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="/painel/chamados" class="menu-item">
+                <span>▤</span> Chamados
+            </a>
+
+            <a href="/painel/clientes" class="menu-item">
+                <span>♙</span> Clientes
+            </a>
+
+            <a href="/painel/tecnicos" class="menu-item active">
+                <span>⚙</span> Técnicos
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="user-profile">
+                <div class="user-avatar">VM</div>
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor do sistema</small>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Gerenciamento de Técnicos</h1>
+                <p>Cadastre e gerencie os técnicos responsáveis pelos atendimentos.</p>
+            </div>
+
+            <div class="topbar-right">
+                <span class="notification">♧</span>
+                <span class="current-date">AtendeLab</span>
+            </div>
+        </header>
+
+        <!-- APRESENTAÇÃO -->
+        <section class="page-description">
+            <h2>Cadastro de técnicos</h2>
+            <p>Adicione profissionais responsáveis pelo atendimento dos chamados.</p>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section class="content-card">
+
+            <div class="section-header">
+                <div>
+                    <h2>Dados do técnico</h2>
+                    <p>Preencha as informações do profissional.</p>
+                </div>
+            </div>
+
+            <form class="client-form">
+
+                <div class="form-group full-width">
+                    <label for="nome">Nome completo *</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        maxlength="120"
+                        placeholder="Digite o nome do técnico"
+                        required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="email">E-mail *</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        maxlength="120"
+                        placeholder="exemplo@email.com"
+                        required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="secondary-button">
+                        Limpar
+                    </button>
+
+                    <button type="button" class="primary-button">
+                        + Cadastrar técnico
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- LISTAGEM -->
+        <section class="content-card" style="margin-top: 25px;">
+
+            <div class="section-header">
+                <div>
+                    <h2>Técnicos cadastrados</h2>
+                    <p>Consulte os profissionais registrados no sistema.</p>
+                </div>
+            </div>
+
+            <div class="page-actions">
+                <div class="search-box client-search">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        placeholder="Pesquisar por nome ou e-mail...">
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon">⚙</div>
+                                    <h3>Nenhum técnico exibido</h3>
+                                    <p>Os técnicos cadastrados aparecerão nesta tabela.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <footer>
+            CHAMADOS © 2026 — Sistema de gerenciamento de chamados.
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+

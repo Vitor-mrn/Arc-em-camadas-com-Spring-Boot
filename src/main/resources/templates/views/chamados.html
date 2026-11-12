@@ -1,0 +1,157 @@
+﻿
+@'
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamados | AtendeLab</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">A</div>
+            <span>Sistemas<span class="logo-highlight">De Chamados</span></span>
+        </div>
+
+        <div class="menu-section">
+            <span class="menu-title">MENU PRINCIPAL</span>
+
+            <a href="/" class="menu-item">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="/painel/chamados" class="menu-item active">
+                <span>▤</span> Chamados
+            </a>
+
+            <a href="/painel/clientes" class="menu-item">
+                <span>♙</span> Clientes
+            </a>
+
+            <a href="/painel/tecnicos" class="menu-item">
+                <span>⚙</span> Técnicos
+            </a>
+        </div>
+
+        <div class="sidebar-bottom">
+            <div class="user-profile">
+                <div class="user-avatar">VM</div>
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor do sistema</small>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Gerenciamento de Chamados</h1>
+                <p>Visualize e gerencie as solicitações de atendimento.</p>
+            </div>
+
+            <div class="topbar-right">
+                <span class="notification">♧</span>
+                <span class="current-date">AtendeLab</span>
+            </div>
+        </header>
+
+        <!-- APRESENTAÇÃO -->
+        <section class="page-description">
+            <h2>Todos os chamados</h2>
+            <p>Acompanhe as solicitações, prioridades e andamento dos atendimentos.</p>
+        </section>
+
+        <!-- PESQUISA E AÇÕES -->
+        <section class="page-actions">
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input type="text" placeholder="Pesquisar chamado...">
+            </div>
+
+            <select class="filter-select">
+                <option value="">Todos os status</option>
+                <option value="aberto">Aberto</option>
+                <option value="andamento">Em andamento</option>
+                <option value="concluido">Concluído</option>
+            </select>
+
+            <select class="filter-select">
+                <option value="">Todas as prioridades</option>
+                <option value="alta">Alta</option>
+                <option value="media">Média</option>
+                <option value="baixa">Baixa</option>
+            </select>
+
+            <button class="primary-button" type="button">
+                + Novo chamado
+            </button>
+
+        </section>
+
+        <!-- TABELA -->
+        <section class="content-card">
+
+            <div class="section-header">
+                <div>
+                    <h2>Lista de chamados</h2>
+                    <p>Solicitações registradas no sistema.</p>
+                </div>
+            </div>
+
+            <p class="ticket-count">Nenhum chamado exibido nesta visualização de teste.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Cliente</th>
+                            <th>Técnico</th>
+                            <th>Prioridade</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="empty-state">
+                                    <div class="empty-state-icon">▤</div>
+                                    <h3>Nenhum chamado encontrado</h3>
+                                    <p>Quando houver chamados cadastrados, eles aparecerão nesta tabela.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <footer>
+            CHAMADOS © 2026 — Sistema de gerenciamento de chamados.
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
+'@ | Set-Content -Path "src/main/resources/templates/views/chamados.html" -Encoding UTF8
+
